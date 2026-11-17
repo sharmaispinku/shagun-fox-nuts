@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# Secrets and host-specific configuration — never commit these
+# ---------------------------------------------------------------------------
+# Contains live database credentials.
+config.php
+config.local.php
+
+# SQL import file: carries a password hash and a default admin login.
+database.sql
+
+# ---------------------------------------------------------------------------
+# Runtime data (created by the app on the server)
+# ---------------------------------------------------------------------------
+data/*.sqlite
+data/*.sqlite-wal
+data/*.sqlite-shm
+data/*.log
+data/installed.lock
+data/*.bak
+
+# ---------------------------------------------------------------------------
+# Legacy / local-only files
+# ---------------------------------------------------------------------------
+# Previous static version of the site, kept on disk only.
+legacy-index.html
+
+# Build artefacts and archives
+*.zip
+
+# ---------------------------------------------------------------------------
+# OS and editor noise
+# ---------------------------------------------------------------------------
+Thumbs.db
+Desktop.ini
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Logs
+*.log

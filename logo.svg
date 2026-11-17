@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Shagun Enterprises logo">
+  <defs>
+    <linearGradient id="lgPad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5c7a4e"/><stop offset="1" stop-color="#3a5a40"/>
+    </linearGradient>
+    <linearGradient id="lgPet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f8f63"/><stop offset="1" stop-color="#3a5a40"/>
+    </linearGradient>
+    <linearGradient id="lgPet2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#93ad8c"/><stop offset="1" stop-color="#5c7a4e"/>
+    </linearGradient>
+    <radialGradient id="lgSeed" cx="40%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#f7efd8"/><stop offset="1" stop-color="#e0c98f"/>
+    </radialGradient>
+    <radialGradient id="lgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#c49b52" stop-opacity=".45"/><stop offset="1" stop-color="#c49b52" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="60" cy="58" r="50" fill="url(#lgGlow)"/>
+  <path d="M67.3 24.6 A42 42 0 1 1 52.7 24.6 L60 66 Z" fill="url(#lgPad)"/>
+  <g stroke="#2c4430" stroke-width="0.6" opacity="0.22">
+    <path d="M60 66 L30 50"/><path d="M60 66 L28 70"/><path d="M60 66 L36 92"/>
+    <path d="M60 66 L60 100"/><path d="M60 66 L84 92"/><path d="M60 66 L92 70"/><path d="M60 66 L90 50"/>
+  </g>
+  <g transform="translate(60,50)">
+    <g fill="url(#lgPet)">
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z"/>
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z" transform="rotate(45)"/>
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z" transform="rotate(90)"/>
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z" transform="rotate(135)"/>
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z" transform="rotate(180)"/>
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z" transform="rotate(225)"/>
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z" transform="rotate(270)"/>
+      <path d="M0 0 C-9 -16 -9 -30 0 -40 C9 -30 9 -16 0 0 Z" transform="rotate(315)"/>
+    </g>
+    <g fill="url(#lgPet2)">
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(22.5)"/>
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(67.5)"/>
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(112.5)"/>
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(157.5)"/>
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(202.5)"/>
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(247.5)"/>
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(292.5)"/>
+      <path d="M0 0 C-6 -10 -6 -20 0 -28 C6 -20 6 -10 0 0 Z" transform="rotate(337.5)"/>
+    </g>
+    <ellipse cx="0" cy="-2" rx="13" ry="15" fill="url(#lgSeed)"/>
+    <g fill="#c0a066" opacity=".55">
+      <circle cx="-4" cy="-7" r="1.3"/><circle cx="3" cy="-9" r="1"/>
+      <circle cx="0" cy="-2" r="1.1"/><circle cx="-5" cy="2" r="0.9"/><circle cx="4" cy="1" r="1"/>
+    </g>
+  </g>
+</svg>

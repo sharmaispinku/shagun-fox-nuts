@@ -1,0 +1,22 @@
+# Normalise line endings so the deployed files are LF (Linux hosting).
+* text=auto eol=lf
+
+*.php   text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.html  text eol=lf
+*.json  text eol=lf
+*.svg   text eol=lf
+*.md    text eol=lf
+*.sql   text eol=lf
+.htaccess text eol=lf
+robots.txt text eol=lf
+
+# Binary assets — never touch
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.ico  binary
+*.webp binary
+*.woff2 binary
+*.zip  binary
