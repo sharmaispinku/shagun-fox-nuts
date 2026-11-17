@@ -236,6 +236,7 @@ directory index work locally. It is not used in production.
 
 ```
 config.sample.php      configuration template (copy to config.php)
+.cpanel.yml            cPanel Git Version Control deployment tasks
 install.php            one-time installer — delete after use
 router.php             local dev router (php -S only)
 sitemap.php            dynamic XML sitemap served as /sitemap.xml
@@ -268,6 +269,63 @@ data/
   schema.mysql.sql
   seed.php             catalogue + partner seed data
 ```
+
+---
+
+## Deploying with cPanel Git Version Control
+
+The repository ships a `.cpanel.yml`, so cPanel's *Git Version Control* can deploy it
+(<https://docs.cpanel.net/knowledge-base/web-services/guide-to-git-deployment/>).
+
+**First deployment**
+
+1. **cPanel → Files → Git Version Control → Create**.
+2. *Repository Path*: `/home/USER/public_html` — the clone target must be the domain's
+   document root, because the app uses absolute paths (`/assets/...`, `/api/...`) and ships
+   its own `.htaccess`. The directory must be **empty**; if `public_html` already has files,
+   back them up, move them out, then clone.
+3. *Repository URL*: `https://github.com/sharmaispinku/shagun-fox-nuts.git`, *Branch*: `main`.
+4. If you later make the repository **private**, cPanel needs a deploy key: create one under
+   *cPanel → Security → SSH Access → Manage SSH Keys*, then paste the public key into
+   *GitHub → repo → Settings → Deploy keys* (tick *Allow write access* if you want the
+   server to push as well as pull).
+5. When the clone finishes, finish the app setup **once**:
+   - *File Manager* → copy `config.sample.php` to `config.php`, edit the database block
+     (the MySQL credentials are not in the repository, by design).
+   - Import `database.sql` through phpMyAdmin, or open `/install.php` once.
+   - Create an empty file `data/installed.lock` (File Manager → + File). This neutralises
+     `install.php` permanently without deleting it, so future pulls never conflict.
+   - Confirm `data/` is writable (typically `755`).
+6. Open the domain, sign in at `/admin/` and change the default password.
+
+**Every update after that**
+
+1. Work locally, then `git add`, `git commit`, `git push`.
+2. cPanel → *Git Version Control* → **Manage** → pick the repository → **Pull or Deploy** tab:
+   - **Update from Remote** — fetches and applies the new commit to the cPanel working copy.
+   - **Deploy HEAD Commit** — runs the `.cpanel.yml` tasks (here: ensure `data/` exists).
+3. Reload the page. `assets/*.css|js|img` are versioned with `filemtime`, so no cache purge is needed.
+
+**Rules that keep pulls clean**
+
+- Never edit files on the server — change them locally and push. A dirty working tree blocks
+  *Update from Remote*; if it happens, restore with `git checkout -- .` in *Terminal*.
+- `config.php`, `database.sql`, `data/*.sqlite` and `data/installed.lock` are git-ignored.
+  Pulls never overwrite them, which is why your live credentials and orders survive deploys.
+- Database changes (new grades, schema edits) are **not** applied by Git. Re-import the
+  changed SQL, or edit rates in *Admin → Rates & grades*.
+- After deleting a file locally, `git push` removes it on the server on the next pull — check
+  the diff before you deploy.
+
+**Optional: scheduled pulls.** If you would rather deploy on a timer, add a cron job
+(*cPanel → Cron Jobs*) such as:
+
+```bash
+/usr/bin/git -C /home/USER/public_html pull --ff-only origin main
+```
+
+Manual deploys through the Git Version Control screen are safer; use cron only if you accept
+automatic updates.
 
 ---
 

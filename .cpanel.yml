@@ -1,0 +1,13 @@
+---
+# cPanel Git Version Control deployment tasks.
+#
+# The repository is checked out directly into the document root, so there is
+# nothing to copy — these tasks only guarantee the runtime directory exists and
+# is writable by PHP.
+#
+# Note: config.php and the SQLite database are git-ignored on purpose. They are
+# created once on the server and are never touched by a pull.
+deployment:
+  tasks:
+    - /bin/mkdir -p data
+    - /bin/chmod 755 data
