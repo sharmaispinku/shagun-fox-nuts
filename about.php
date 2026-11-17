@@ -50,13 +50,13 @@ require __DIR__ . '/includes/header.php';
 
             <div class="reveal" style="display:flex;flex-direction:column;gap:18px">
                 <div class="media-frame" style="aspect-ratio:4/3">
-                    <img src="/assets/img/plant-detail.jpg" alt="Euryale ferox leaf and flower in a pond" loading="lazy" width="900" height="1200">
+                    <?= picture('plant-howrah-2.jpg', 'Euryale ferox leaf and flower at the Indian Botanic Garden, Howrah', 1100, 825) ?>
                 </div>
                 <div class="media-frame" style="aspect-ratio:16/10">
-                    <img src="/assets/img/sorting.jpg" alt="Hand sorting of grain" loading="lazy" width="1000" height="1333">
+                    <?= picture('biharr.jpg', 'Foxnuts being lightly roasted in Nawada district, Bihar', 1200, 900) ?>
                     <div class="media-badge">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a5a40" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                        <div><strong>Hand-checked</strong>Every lot is picked for split and broken grain.</div>
+                        <div><strong>Roasted in Bihar</strong>Foxnuts being lightly roasted in Nawada district.</div>
                     </div>
                 </div>
             </div>

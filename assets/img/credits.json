@@ -77,61 +77,6 @@
     ]
   },
   {
-    "file": "packshot.jpg",
-    "title": "File:Makhana as Snack from India.jpg",
-    "license": "CC0",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Toddy\" title=\"User:Toddy\">Toddy</a>",
-    "page": "https://commons.wikimedia.org/wiki/File:Makhana_as_Snack_from_India.jpg",
-    "size": [
-      1000,
-      1333
-    ]
-  },
-  {
-    "file": "plant-hero.jpg",
-    "title": "File:Euryale ferox, Jard\u00edn Bot\u00e1nico, M\u00fanich, Alemania, 2013-09-08, DD 01.JPG",
-    "license": "CC BY-SA 3.0",
-    "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
-    "page": "https://commons.wikimedia.org/wiki/File:Euryale_ferox,_Jard%C3%ADn_Bot%C3%A1nico,_M%C3%BAnich,_Alemania,_2013-09-08,_DD_01.JPG",
-    "size": [
-      1600,
-      1047
-    ]
-  },
-  {
-    "file": "plant-detail.jpg",
-    "title": "File:Euryale ferox 3.jpg",
-    "license": "CC0",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Awinch1001\" title=\"User:Awinch1001\">Awinch1001</a>",
-    "page": "https://commons.wikimedia.org/wiki/File:Euryale_ferox_3.jpg",
-    "size": [
-      900,
-      1200
-    ]
-  },
-  {
-    "file": "pond.jpg",
-    "title": "File:Makhanak Pokhari.jpg",
-    "license": "Public domain",
-    "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Kaotuka\" class=\"extiw\" title=\"wikipedia:User:Kaotuka\">Kaotuka</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
-    "page": "https://commons.wikimedia.org/wiki/File:Makhanak_Pokhari.jpg",
-    "size": [
-      480,
-      356
-    ]
-  },
-  {
-    "file": "sorting.jpg",
-    "title": "File:Traditional Grain Sorting in a Rural Setting.jpg",
-    "license": "CC BY-SA 4.0",
-    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tusasirwe_Mackline&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tusasirwe Mackline (page does not exist)\">Tusasirwe Mackline</a>",
-    "page": "https://commons.wikimedia.org/wiki/File:Traditional_Grain_Sorting_in_a_Rural_Setting.jpg",
-    "size": [
-      1000,
-      1333
-    ]
-  },
-  {
     "file": "biharr.jpg",
     "title": "File:Foxnut Makhana - Nawada District - Bihar - 1.jpg",
     "license": "CC BY-SA 4.0",
@@ -143,14 +88,58 @@
     ]
   },
   {
-    "file": "assortment.jpg",
-    "title": "File:Array of dried fruits - Xi'an (4535190349).jpg",
-    "license": "CC BY 2.0",
-    "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/21756912@N00\">Will Clayton</a> from Blackburn, UK",
-    "page": "https://commons.wikimedia.org/wiki/File:Array_of_dried_fruits_-_Xi%27an_(4535190349).jpg",
+    "file": "plant-howrah-1.jpg",
+    "title": "File:Euryale ferox-1-AJCBIBG-howrah-India.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Yercaud-elango\" title=\"User:Yercaud-elango\">Yercaud-elango</a>",
+    "page": "https://commons.wikimedia.org/wiki/File:Euryale_ferox-1-AJCBIBG-howrah-India.jpg",
+    "size": [
+      1500,
+      1125
+    ]
+  },
+  {
+    "file": "plant-howrah-2.jpg",
+    "title": "File:Euryale ferox-2-AJCBIBG-howrah-India.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Yercaud-elango\" title=\"User:Yercaud-elango\">Yercaud-elango</a>",
+    "page": "https://commons.wikimedia.org/wiki/File:Euryale_ferox-2-AJCBIBG-howrah-India.jpg",
+    "size": [
+      1500,
+      1125
+    ]
+  },
+  {
+    "file": "plant-howrah-3.jpg",
+    "title": "File:Euryale ferox-3-AJCBIBG-howrah-India.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Yercaud-elango\" title=\"User:Yercaud-elango\">Yercaud-elango</a>",
+    "page": "https://commons.wikimedia.org/wiki/File:Euryale_ferox-3-AJCBIBG-howrah-India.jpg",
     "size": [
       1200,
       900
+    ]
+  },
+  {
+    "file": "plant-nandankanan.jpg",
+    "title": "File:Euryale ferox Salisb. foliage.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Jitendraamishra&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Jitendraamishra (page does not exist)\">Jitendraamishra</a>",
+    "page": "https://commons.wikimedia.org/wiki/File:Euryale_ferox_Salisb._foliage.jpg",
+    "size": [
+      1400,
+      1050
+    ]
+  },
+  {
+    "file": "makhana-kheer.jpg",
+    "title": "File:Shahi Paneer & Anjir Makhana Kheer - A Royal Feast.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Jrsvb&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Jrsvb (page does not exist)\">Jrsvb</a>",
+    "page": "https://commons.wikimedia.org/wiki/File:Shahi_Paneer_%26_Anjir_Makhana_Kheer_-_A_Royal_Feast.jpg",
+    "size": [
+      1400,
+      784
     ]
   }
 ]

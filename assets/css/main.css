@@ -378,6 +378,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .media-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 4 / 3.4; background: var(--paper-warm); }
 .media-frame img { width: 100%; height: 100%; object-fit: cover; }
 .media-frame--tall { aspect-ratio: 3 / 4; }
+
+/* <picture> wrappers must not interrupt the layout of the <img> inside */
+picture { display: contents; }
 .media-badge {
     position: absolute; bottom: 18px; left: 18px; right: 18px;
     background: rgba(255, 255, 255, .93); backdrop-filter: blur(8px);
@@ -385,6 +388,32 @@ button, input, select, textarea { font: inherit; color: inherit; }
     display: flex; align-items: center; gap: 12px;
 }
 .media-badge strong { display: block; color: var(--ink); }
+
+/* Photo band: origin and craft */
+.gallery { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 14px; }
+.gallery figure {
+    position: relative; margin: 0; border-radius: var(--radius); overflow: hidden;
+    background: var(--paper-warm); aspect-ratio: 4 / 3.1; box-shadow: var(--shadow-sm);
+}
+.gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.gallery figure:hover img { transform: scale(1.05); }
+.gallery figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 38px 16px 14px;
+    background: linear-gradient(to top, rgba(20, 26, 20, .88), rgba(20, 26, 20, 0));
+    color: #fff; font-size: .79rem; line-height: 1.45;
+}
+.gallery figcaption strong {
+    display: block; font-family: var(--font-serif); font-size: .94rem;
+    font-weight: 600; margin-bottom: 3px; letter-spacing: -.01em;
+}
+@media (max-width: 900px) {
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .gallery figure:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 620px) {
+    .gallery { grid-template-columns: 1fr; }
+    .gallery figure:first-child { grid-column: auto; }
+}
 
 /* ----------------------------------------------------------- 13. markets */
 .rate-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }

@@ -61,7 +61,7 @@ require __DIR__ . '/includes/header.php';
     <div class="container">
         <div class="split">
             <div class="media-frame reveal" style="aspect-ratio:1/1">
-                <img src="<?= e($pageImage) ?>" alt="<?= e($p['name']) ?> makhana, <?= e($p['grade_size']) ?>" width="900" height="900">
+                <?= picture((string)$p['image'], $p['name'] . ' makhana, ' . $p['grade_size'], 900, 900, '', 'eager') ?>
                 <?php if (!empty($p['badge'])): ?>
                     <span class="product-badge product-badge--gold"><?= e($p['badge']) ?></span>
                 <?php endif; ?>
@@ -142,7 +142,7 @@ require __DIR__ . '/includes/header.php';
             <?php foreach (array_slice($related, 0, 3) as $i => $r): ?>
                 <article class="product-card reveal" style="transition-delay: <?= $i * 50 ?>ms">
                     <div class="product-media">
-                        <img src="<?= e('/assets/img/' . $r['image']) ?>" alt="<?= e($r['name']) ?> makhana" loading="lazy" width="900" height="675">
+                        <?= picture((string)$r['image'], $r['name'] . ' makhana', 900, 675) ?>
                     </div>
                     <div class="product-body">
                         <h3 style="font-size:1.1rem"><?= e($r['name']) ?></h3>

@@ -413,6 +413,44 @@ function json_attr(array $data): string
     return e(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT));
 }
 
+/**
+ * Responsive <picture> element: serves WebP when present, JPEG otherwise.
+ * Falls back to the JPEG silently when no WebP sibling exists.
+ *
+ * @param string $src      file name inside assets/img (e.g. "hero-makhana.jpg")
+ * @param string $alt      alternative text
+ * @param int    $width    intrinsic width (prevents layout shift)
+ * @param int    $height   intrinsic height
+ * @param string $class    CSS class for the <picture> element
+ * @param string $loading  "lazy" (default) or "eager"
+ * @param string $sizes    optional sizes attribute
+ */
+function picture(string $src, string $alt, int $width = 0, int $height = 0, string $class = '', string $loading = 'lazy', string $sizes = ''): string
+{
+    $base = '/assets/img/' . ltrim($src, '/');
+    if (!is_file(APP_ROOT . $base)) {
+        return '';
+    }
+
+    $ext  = strtolower(pathinfo($base, PATHINFO_EXTENSION));
+    $webp = $ext === '' ? '' : preg_replace('/\.' . preg_quote($ext, '/') . '$/', '.webp', $base);
+    $has  = $webp && is_file(APP_ROOT . $webp);
+
+    $attrs  = ' src="' . e($base) . '"';
+    $attrs .= $width > 0 && $height > 0 ? ' width="' . $width . '" height="' . $height . '"' : '';
+    $attrs .= ' alt="' . e($alt) . '"';
+    $attrs .= $loading !== '' ? ' loading="' . e($loading) . '"' : '';
+    $attrs .= ' decoding="async"';
+
+    $open = $class !== '' ? '<picture class="' . e($class) . '">' : '<picture>';
+    if ($has) {
+        $source = '<source type="image/webp" srcset="' . e($webp) . '"'
+            . ($sizes !== '' ? ' sizes="' . e($sizes) . '"' : '') . '>';
+        return $open . $source . '<img' . $attrs . '></picture>';
+    }
+    return $open . '<img' . $attrs . '></picture>';
+}
+
 function asset(string $path): string
 {
     $path = '/' . ltrim($path, '/');

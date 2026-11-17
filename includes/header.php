@@ -75,6 +75,7 @@ $allLd = array_merge([$orgLd], is_array($jsonLd) ? $jsonLd : [$jsonLd]);
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
 <link rel="manifest" href="/assets/favicon/site.webmanifest">
 
+<link rel="preload" as="image" type="image/webp" href="/assets/img/logo-full.png">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-normal-400_700.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-400_700.woff2" crossorigin>
 <link rel="stylesheet" href="<?= asset('/assets/css/fonts.css') ?>">

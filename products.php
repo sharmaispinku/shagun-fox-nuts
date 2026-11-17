@@ -34,7 +34,7 @@ require __DIR__ . '/includes/header.php';
                         <?php if ($p['badge']): ?>
                             <span class="product-badge<?= $i === 0 ? ' product-badge--gold' : '' ?>"><?= e($p['badge']) ?></span>
                         <?php endif; ?>
-                        <img src="<?= e('/assets/img/' . $p['image']) ?>" alt="<?= e($p['name']) ?> makhana" loading="lazy" width="900" height="675">
+                        <?= picture((string)$p['image'], $p['name'] . ' makhana', 900, 675) ?>
                     </div>
                     <div class="product-body">
                         <h3><?= e($p['name']) ?></h3>

@@ -62,7 +62,7 @@ require __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="media-frame" style="aspect-ratio:16/10">
-                    <img src="/assets/img/biharr.jpg" alt="Makhana from Nawada district, Bihar" loading="lazy" width="1200" height="900">
+                    <?= picture('biharr.jpg', 'Makhana from Nawada district, Bihar', 1200, 900) ?>
                     <div class="media-badge">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a5a40" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
                         <div><strong>Purnea, Bihar</strong>At the centre of India's makhana belt.</div>

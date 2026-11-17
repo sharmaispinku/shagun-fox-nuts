@@ -125,7 +125,7 @@ require __DIR__ . '/includes/header.php';
                         <?php if ($p['badge']): ?>
                             <span class="product-badge<?= $i === 0 ? ' product-badge--gold' : '' ?>"><?= e($p['badge']) ?></span>
                         <?php endif; ?>
-                        <img src="<?= e('/assets/img/' . $p['image']) ?>" alt="<?= e($p['name']) ?> makhana, <?= e($p['grade_size']) ?>" loading="lazy" width="900" height="675">
+                        <?= picture((string)$p['image'], $p['name'] . ' makhana, ' . $p['grade_size'], 900, 675) ?>
                     </div>
                     <div class="product-body">
                         <h3><?= e($p['name']) ?></h3>
@@ -215,7 +215,7 @@ require __DIR__ . '/includes/header.php';
     <div class="container">
         <div class="split">
             <div class="media-frame media-frame--tall reveal">
-                <img src="/assets/img/plant-hero.jpg" alt="Euryale ferox — the makhana plant with its floating leaves and flower" loading="lazy" width="1600" height="1047">
+                <?= picture('plant-howrah-1.jpg', 'Euryale ferox, the makhana plant, at the Indian Botanic Garden in Howrah', 1100, 825, '', 'lazy') ?>
                 <div class="media-badge">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a5a40" stroke-width="1.8" aria-hidden="true"><path d="M12 22c0-6 3-10 8-11-1 6-4 9-8 11Zm0 0c0-6-3-10-8-11 1 6 4 9 8 11Z"/></svg>
                     <div><strong>Euryale ferox</strong>Makhana grows in still ponds across North Bihar.</div>
@@ -324,19 +324,63 @@ require __DIR__ . '/includes/header.php';
         <div class="section-head reveal">
             <span class="eyebrow">In the kitchen</span>
             <h2>One grain, plenty of uses.</h2>
-            <p>Buyers pick a grade by how the makhana will be finished — dry-roasted and salted, tossed in masala, ground into kheer, or blended into a trail mix.</p>
+            <p>Buyers pick a grade by how the makhana will be finished — dry-roasted and salted, tossed in masala, simmered into kheer, or blended into a trail mix.</p>
         </div>
-        <div class="grid grid-2">
-            <figure class="media-frame reveal" style="aspect-ratio:4/3;margin:0">
-                <img src="/assets/img/masala.jpg" alt="Roasted makhana tossed with masala and ghee" loading="lazy" width="900" height="900">
+        <div class="grid grid-3">
+            <figure class="media-frame reveal" style="aspect-ratio:4/3.2;margin:0">
+                <?= picture('masala.jpg', 'Roasted makhana tossed with masala and ghee', 900, 900) ?>
                 <figcaption class="media-badge">
                     <div><strong>Roast &amp; masala</strong>Smaller, uniform grain coats evenly.</div>
                 </figcaption>
             </figure>
-            <figure class="media-frame reveal" style="aspect-ratio:4/3;margin:0">
-                <img src="/assets/img/spiced.jpg" alt="Spiced fox nuts (phool makhana) ready to serve" loading="lazy" width="900" height="1260">
+            <figure class="media-frame reveal" style="aspect-ratio:4/3.2;margin:0">
+                <?= picture('spiced.jpg', 'Spiced fox nuts (phool makhana) ready to serve', 900, 1260) ?>
                 <figcaption class="media-badge">
                     <div><strong>Retail &amp; gifting</strong>Larger grain holds its shape and looks premium.</div>
+                </figcaption>
+            </figure>
+            <figure class="media-frame reveal" style="aspect-ratio:4/3.2;margin:0">
+                <?= picture('makhana-kheer.jpg', 'Makhana kheer, the classic Indian preparation', 1100, 616) ?>
+                <figcaption class="media-badge">
+                    <div><strong>Kheer &amp; curries</strong>Mid-size grain softens without collapsing.</div>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<section class="section section--paper">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">Origin &amp; craft</span>
+            <h2>From the pond to the pack.</h2>
+            <p>
+                Makhana begins as a seed inside a prickly pod on a floating leaf. What happens next — drying,
+                roasting, popping, grading — decides the price and the plate. These frames are representative of
+                the crop, the plant and the finished snack.
+            </p>
+        </div>
+
+        <div class="gallery">
+            <figure class="reveal">
+                <?= picture('biharr.jpg', 'Foxnuts being lightly roasted in Nawada district, Bihar', 1200, 900) ?>
+                <figcaption>
+                    <strong>Roasting the seed</strong>
+                    Foxnuts being lightly roasted — Nawada district, Bihar.
+                </figcaption>
+            </figure>
+            <figure class="reveal">
+                <?= picture('plant-howrah-3.jpg', 'Euryale ferox growing at the Indian Botanic Garden, Howrah', 1100, 825) ?>
+                <figcaption>
+                    <strong>The makhana plant</strong>
+                    <em>Euryale ferox</em> — prickly waterlily, Indian Botanic Garden, Howrah.
+                </figcaption>
+            </figure>
+            <figure class="reveal">
+                <?= picture('plant-nandankanan.jpg', 'Prickly waterlily leaf at Nandankanan, Odisha', 1100, 825) ?>
+                <figcaption>
+                    <strong>Under the leaf</strong>
+                    The fruit ripens underwater; each pod holds the seed.
                 </figcaption>
             </figure>
         </div>
