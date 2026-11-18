@@ -32,6 +32,27 @@ $jsonLd = [[
     }, $gradeRows, array_keys($gradeRows)),
 ]];
 
+$homeFaqs = [
+    ['What is the minimum order quantity?', 'Wholesale lots start at 25 kg per grade, in 25 kg or 50 kg PP bags. Sample lots of 1 to 2 kg are available so you can check colour, size and roast before committing to a bigger order.'],
+    ['How do I get a quote?', 'Send the grade, quantity, packing preference and delivery city through the bulk order form, or message us on WhatsApp. Our grading desk replies with a firm rate and dispatch plan within one working day.'],
+    ['Can I see a sample before ordering?', 'Yes. Ask for a sample of the grade you are evaluating — we share it with the grading details for that lot so you can compare against your current supplier.'],
+    ['Do you provide a GST invoice?', 'Yes. Every consignment is invoiced against your GSTIN, with the weight slip and batch details shared alongside. Our GSTIN is 10GEIPK2689D1ZL.'],
+    ['Where do you dispatch from?', 'Our grading and packing unit is at Harda Bazar, Kolasi Road, Purnea, Bihar 854303. We dispatch by road across India — Bihar, UP, Jharkhand, West Bengal, Delhi NCR and other states on request.'],
+    ['Which grade should I choose?', 'Grade is decided by how the makhana will be used. Premium Select (18 mm, 7+ suta) suits premium retail and gifting, Superior (16 mm, 6+) is the everyday premium grade, Standard (13 mm, 5+) balances cost and appearance, and Regular (10 mm, 4+) works best for roasting, flavouring and further processing.'],
+];
+
+$jsonLd[] = [
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
+    'mainEntity' => array_map(static function (array $qa) {
+        return [
+            '@type'          => 'Question',
+            'name'           => $qa[0],
+            'acceptedAnswer' => ['@type' => 'Answer', 'text' => $qa[1]],
+        ];
+    }, $homeFaqs),
+];
+
 require __DIR__ . '/includes/header.php';
 ?>
 
@@ -102,10 +123,26 @@ require __DIR__ . '/includes/header.php';
 <section class="stat-strip" aria-label="Company at a glance">
     <div class="container">
         <div class="stat-strip-inner">
-            <div class="stat"><span class="num"><?= count($gradeRows) ?: 4 ?></span><span class="lbl">Makhana grades</span></div>
-            <div class="stat"><span class="num"><?= count($distRows) ?: 4 ?></span><span class="lbl">Distribution partners</span></div>
-            <div class="stat"><span class="num">18 mm</span><span class="lbl">Largest grade size</span></div>
-            <div class="stat"><span class="num">GST</span><span class="lbl">Registered business</span></div>
+            <div class="stat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4Zm0 0v10l9 4 9-4V7"/></svg>
+                <span class="num"><?= count($gradeRows) ?: 4 ?></span><span class="lbl">Calibrated grades</span>
+            </div>
+            <div class="stat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-5.5 7-11V5l-7-3-7 3v5c0 5.5 7 11 7 11Z"/></svg>
+                <span class="num">10–18 mm</span><span class="lbl">Grain sizes</span>
+            </div>
+            <div class="stat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span class="num">Purnea</span><span class="lbl">Bihar origin</span>
+            </div>
+            <div class="stat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 7h-9l-2 3H4a2 2 0 0 0 0 4h3l2 3h9a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/></svg>
+                <span class="num">25 kg</span><span class="lbl">Minimum order</span>
+            </div>
+            <div class="stat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+                <span class="num">Pan-India</span><span class="lbl">Road dispatch</span>
+            </div>
         </div>
     </div>
 </section>
@@ -298,21 +335,45 @@ require __DIR__ . '/includes/header.php';
 <section class="section section--warm">
     <div class="container">
         <div class="section-head section-head--center reveal">
-            <span class="eyebrow">Who we supply</span>
-            <h2>Built for buyers who reorder.</h2>
+            <span class="eyebrow">Three ways to buy</span>
+            <h2>Pick the path that fits your business.</h2>
+            <p>Same grading discipline, different packing and paperwork. Tell us which one you are and we will quote the lot accordingly.</p>
         </div>
-        <div class="grid grid-4">
+        <div class="grid grid-3">
             <?php
-            $segments = [
-                ['Wholesale markets', 'Consistent grade and weight across lots, so you can quote your own buyers with confidence.'],
-                ['Retail &amp; chains', 'Pouch packing, batch coding and steady replenishment for modern trade and q-commerce.'],
-                ['Hotels, cafes, caterers', 'Uniform grain for consistent roast and recipes, in kitchen-friendly pack sizes.'],
-                ['Exporters', 'Documented lots, moisture control and packing that survives the long haul.'],
+            $paths = [
+                [
+                    'Wholesalers &amp; distributors',
+                    'Graded bulk lots you can break and resell, with sizing that matches the last lot.',
+                    ['25 / 50 kg PP bags with liner', 'Consistent sizing lot to lot', 'GST invoice and weight slip'],
+                    'Bulk enquiry',
+                ],
+                [
+                    'Retailers &amp; modern trade',
+                    'Pouch-packed makhana for shelves, with batch codes and steady replenishment.',
+                    ['100 g / 200 g / 500 g pouches', 'Batch and lot coding on every pack', 'Scheduled replenishment'],
+                    'Retail packing',
+                ],
+                [
+                    'Bulk &amp; institutional kitchens',
+                    'Uniform grain for roasting lines, kheer, sweets and large kitchens.',
+                    ['Uniform grain for even roasting', 'MOQ from 25 kg upward', 'Packed to your kitchen size'],
+                    'Institutional supply',
+                ],
             ];
-            foreach ($segments as $i => $s): ?>
-                <div class="card reveal" style="transition-delay: <?= $i * 50 ?>ms">
-                    <h3><?= $s[0] ?></h3>
-                    <p style="margin-top:9px;color:var(--ink-soft);font-size:.93rem"><?= e($s[1]) ?></p>
+            foreach ($paths as $i => [$title, $intro, $bullets, $cta]): ?>
+                <div class="card path-card reveal" style="transition-delay: <?= $i * 60 ?>ms">
+                    <h3><?= $title ?></h3>
+                    <p style="margin-top:9px;color:var(--ink-soft);font-size:.93rem"><?= e($intro) ?></p>
+                    <ul class="path-list">
+                        <?php foreach ($bullets as $b): ?>
+                            <li>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><?= e($b) ?></span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <a class="btn btn-ghost btn-sm btn-block" href="/bulk-order?type=bulk"><?= e($cta) ?></a>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -410,6 +471,32 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 <?php endif; ?>
+
+<section class="section section--paper">
+    <div class="container">
+        <div class="section-head section-head--center reveal">
+            <span class="eyebrow">Before you order</span>
+            <h2>The questions every buyer asks.</h2>
+            <p>Still unsure about something? The grading desk answers on WhatsApp within working hours.</p>
+        </div>
+
+        <div class="faq-list">
+            <?php foreach ($homeFaqs as $i => [$q, $a]): ?>
+                <div class="faq-item reveal">
+                    <button class="faq-q" aria-expanded="false" aria-controls="home-faq-<?= $i ?>" type="button">
+                        <?= e($q) ?>
+                        <span class="icon" aria-hidden="true">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 5v14M5 12h14"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-a" id="home-faq-<?= $i ?>">
+                        <div><p><?= e($a) ?></p></div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
 <section class="cta-band">
     <div class="container">

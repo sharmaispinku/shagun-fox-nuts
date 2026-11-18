@@ -408,9 +408,18 @@ function tel_link(): string
 
 /* ---------------------------------------------------------------- misc */
 
+/**
+ * JSON for a <script type="application/ld+json"> block.
+ *
+ * Must NOT be HTML-escaped: script bodies are raw text, so &quot; would make
+ * the JSON invalid. JSON_HEX_TAG / JSON_HEX_AMP neutralise "</script>" breakout.
+ */
 function json_attr(array $data): string
 {
-    return e(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT));
+    return json_encode(
+        $data,
+        JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT
+    ) ?: '{}';
 }
 
 /**
